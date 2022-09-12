@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>info user</title>
+</head>
+<body>
+    <h2>User {{user.email}}</h2>
+    <p>Full Name {{user.first_name}} {{user.last_name}}</p>
+    <p>Email: {{user.email}}</p>
+
+    <a class="btn btn-primary" href="/users" role="button">Home</a>
+    <a href="/users/delete/{{ user.id }}">Delete</a>
+    <a href="/users/edit/{{ user.id }}">edit</a>
+</body>
+</html>
