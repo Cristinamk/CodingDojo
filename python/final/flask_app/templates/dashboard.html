@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body>
+    <h1> Dashboard {{session.first_name}}</h1>
+        <a href="/new/sighting">Report a Sighting</a>
+        <a href="/logout">Log Out</a>
+    <h2>Reported Sightings</h2>
+<table>{% for sighting in all_sightings%}
+    <tr>
+        <td>{{sighting.location}}</td>
+        <td>{{sighting.date_sight}} </td>
+        <td>Report by : {{sighting.user.first_name}} {{sighting.user.last_name}}</td>
+        {%if sighting.user.id != session.user_id%}
+        <td><a href="/show/{{sighting.id}}">View</a></td>
+        {%endif%}
+        {%if sighting.user.id == session.user_id%}
+        <td><a href="/delete/{{sighting.id}}">Delete</a></td>
+        <td><a href="/edit/{{sighting.id}}">Edit</a></td>
+        {%endif%}
+    </tr>
+
+    {%endfor%}
+</table>
+</body>
+</html>

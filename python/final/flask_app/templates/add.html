@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Sighting</title>
+</head>
+<body>
+    <h1>{{session.first_name}} Dashboard</h1>
+    <h2>Report new sighting:</h2>
+    <form action="/new/sighting/post" method="POST">
+        <label>
+            Location:
+            <input type="text" name="location" required>
+        </label>
+        <label>
+            What Happend:
+            <textarea name = "what_happend" cols="40" rows="5"></textarea>
+        </label>
+        <label>
+            Date:
+            <input type="date" name="date_sight" required>
+        </label>
+        <label>
+            # of Sasquatches
+            <input type="number" name="num_sasq">
+        </label>
+        <input type="submit" value="Report">
+
+    </form>
+</body>
+</html>
