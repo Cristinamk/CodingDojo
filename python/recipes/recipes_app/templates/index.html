@@ -1,0 +1,58 @@
+{% extends 'base/base.html' %}
+
+{% block title %}Register / Login{% endblock %}
+
+
+
+{% block content %}
+
+    <h1>Recipe Share</h1>
+
+    <div class="flex-wrapper flex-evenly">
+
+        <div>
+            <h2>Register</h2>
+            <form class="flex-wrapper flex-column flex-ends flex-gap" action="/register" method="POST">
+                <label>
+                    First Name:
+                    <input type="text" name="first_name" value="{{data.first_name}}">
+                </label>
+                <label>
+                    last Name:
+                    <input type="text" name="last_name" value="{{data.last_name}}">
+                </label>
+                <label>
+                    Email:
+                    <input type="email" name="email" value="{{data.email}}">
+                </label>
+                <label>
+                    Passowrd:
+                    <input type="password" name="password">
+                </label>
+                <label>
+                    Confirm Passowrd:
+                    <input type="password" name="confirm_password">
+                </label>
+                <input type="submit" value="Sign Up">
+            </form>
+        </div>
+
+
+        <div>
+            <h2>Log In</h2>
+            <form class="flex-wrapper flex-column flex-ends flex-gap" action="/login" method="POST">
+                <label>
+                    Email:
+                    <input type="email" name="email" value="{{data.email}}">
+                </label>
+                <label>
+                    Password:
+                    <input type="password" name="password">
+                </label>
+                <input type="submit" value="Sign In">
+            </form>
+        </div>
+
+    </div>
+
+{% endblock %}

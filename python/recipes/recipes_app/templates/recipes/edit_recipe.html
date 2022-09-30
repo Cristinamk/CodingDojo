@@ -1,0 +1,58 @@
+{% extends 'base/base.html' %}
+
+{% block title %}New Recipe{% endblock %}
+
+
+{% block content %}
+    <h1>Add a New Recipe!</h1>
+    <a href="/recipes">All Recipes</a>
+    <a href="/logout">Logout</a>
+
+    <form class="flex-wrapper flex-center flex-gap" action="/recipes/{{data.id}}/edit" method="POST">
+        <div class="flex-wrapper flex-column flex-gap flex-ends">
+            <label>
+                Name:
+                <input type="text" name="name" value="{{data.name}}">
+            </label>
+            <label>
+                Description:
+                <textarea name="description" cols="30" rows="4">{{data.description}}</textarea>
+            </label>
+            <label>
+                Instructions:
+                <textarea name="instructions" cols="30" rows="7">{{data.instructions}}</textarea>
+            </label>
+        </div>
+        <div class="flex-wrapper flex-column">
+            <label>
+                Data Cooked/Made: <br><br>
+                <input type="date" name="date_cooked" value="{{data.date_cooked}}">
+            </label>
+            <br><br><br>
+            Under 30 Minutes?<br>
+            <div>
+                {% if data.is_under_30_mins == 'Yes' %}
+                    <label>
+                        Yes
+                        <input type="radio" name="is_under_30_mins" value="Yes" checked>
+                    </label>
+                    <label>
+                        No
+                        <input type="radio" name="is_under_30_mins" value="No">
+                    </label>
+                {% else %}
+                    <label>
+                        Yes
+                        <input type="radio" name="is_under_30_mins" value="Yes">
+                    </label>
+                    <label>
+                        No
+                        <input type="radio" name="is_under_30_mins" value="No" checked>
+                    </label>
+                {% endif %}
+            </div>
+            <br><br><br>
+            <input type="submit" value="Update">
+        </div>
+    </form>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base/base.html' %}
+
+{% block title %}{{recipe.name}}{% endblock %}
+
+
+{% block content %}
+    <h1>Welcome, {{ session.user_name }} {{session.user_id}}</h1>
+    <a href="/recipes">All Recipes</a> | <a href="/logout">Logout</a>
+    <h2>{{ recipe.name }}</h2>
+    <div style="border: 2px solid black; padding:2%; width:60%;">
+        <h3>Added by {{ recipe.user.print_full_name() }}</h3>
+        <div class="flex-wrapper">
+            <h3>Description</h3>
+            <h3 class="big-margin-left">{{ recipe.description }}</h3>
+        </div>
+        <div class="flex-wrapper">
+            <h3>Under 30 Minutes?</h3>
+            <h3 class="big-margin-left">{{ recipe.is_under_30_mins }}</h3>
+        </div>
+        <div class="flex-wrapper">
+            <h3>Instructions</h3>
+            <h3 class="big-margin-left">{{ recipe.instructions }}</h3>
+        </div>
+        <div class="flex-wrapper">
+            <h3>Date Cooked</h3>
+            <h3 class="big-margin-left">{{ recipe.date_cooked.strftime('%B %d, %y') }}</h3>
+        </div>
+    </div>
+{% endblock %}

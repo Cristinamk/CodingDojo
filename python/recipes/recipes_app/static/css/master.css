@@ -1,0 +1,21 @@
+.flex-wrapper{
+    display: flex;
+}
+.flex-evenly{
+    justify-content: space-evenly;
+}
+.flex-column{
+    flex-direction: column;
+}
+.flex-center{
+    justify-content: center;
+}
+.flex-gap{
+    gap: 10px;
+}
+.flex-ends{
+    align-items: flex-end;
+}
+.big-margin-left{
+    margin-left: 30%;
+}

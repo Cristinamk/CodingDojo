@@ -1,0 +1,36 @@
+{% extends 'base/base.html' %}
+
+{% block title %}All Recipes{% endblock %}
+
+
+{% block content %}
+
+    <h1>Welcome, {{ session.user_name }} {{session.user_id}}</h1>
+    <h3>All Posted Recipes</h3>
+    <a href="/create_recipe">+ Create</a>
+    <a href="/logout">Logout</a>
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Under 30 Mins</th>
+            <th>Posted By</th>
+            <th>Actions</th>
+        </tr>
+            {% for recipe in recipes %}
+                <tr>
+                    <td>{{recipe.name}}</td>
+                    <td>{{recipe.is_under_30_mins}}</td>
+                    <td>{{recipe.user.first_name}}</td>
+                    <td>
+                        <a href="/recipes/{{recipe.id}}">View Recipe</a>
+                        {% if session.user_id == recipe.user_id %}
+                            | <a href="/recipes/{{recipe.id}}/edit">Edit</a> 
+                            | <a href="/recipes/{{recipe.id}}/delete">Delete</a>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+
+{% endblock %}

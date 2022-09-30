@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/master.css') }}">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    {% with msgs = get_flashed_messages() %}
+        {% if msgs %}
+        <div id="flash_msgs">
+            {% for msg in msgs %}
+                <p>{{ msg  }}</p>
+            {% endfor %}
+            <button onclick="flash_msgs.remove()">X</button>
+        </div>
+        {% endif %}
+    {% endwith %}
+
+    {% block content %}{% endblock %}
+</body>
+</html>
